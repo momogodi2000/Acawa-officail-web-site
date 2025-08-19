@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '@/contexts/ThemeContext';
 import { LanguageToggle, useLanguage } from '@/contexts/LanguageContext';
+import OptimizedImage from '../ui/OptimizedImage';
 
 interface NavigationItem {
   path: string;
@@ -156,10 +157,11 @@ const Header: React.FC = () => {
           <div className="flex justify-between items-center">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-3">
-              <img 
+              <OptimizedImage 
                 src="/icons/logo.jpg" 
                 alt="ACAWA Logo" 
                 className="w-12 h-12 rounded-lg shadow-lg object-cover"
+                lazy={false}
               />
               <div>
                 <h1 className="text-2xl font-bold text-primary-600">ACAWA</h1>

@@ -16,7 +16,9 @@
     "test:coverage": "jest --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "optimize:images": "python scripts/optimize_images.py public/icons -o public/images/optimized",
+    "optimize:images:all": "python scripts/optimize_images.py public -o public/optimized --manifest public/image-manifest.json"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.2",
@@ -72,6 +74,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.7",
     "tailwindcss": "^3.3.5",
+    "terser": "^5.43.1",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.0.0"

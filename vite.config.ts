@@ -33,6 +33,32 @@ export default defineConfig({
           motion: ['framer-motion']
         }
       }
+    },
+    // Optimize assets
+    assetsInlineLimit: 4096, // Inline assets smaller than 4kb
+    target: 'esnext',
+    sourcemap: false,
+    minify: 'esbuild', // Use esbuild for faster minification
+    cssMinify: true,
+  },
+  // Image optimization settings
+  assetsInclude: ['**/*.webp', '**/*.avif'],
+  // Development server configuration
+  server: {
+    port: 5174,
+    host: true,
+    strictPort: true,
+    cors: true,
+    hmr: {
+      port: 5174,
+      host: 'localhost'
     }
+  },
+  // Preview server configuration for production builds
+  preview: {
+    port: 4173,
+    host: true,
+    strictPort: true,
+    cors: true
   }
 })

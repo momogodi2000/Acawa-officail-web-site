@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead, SEOPresets } from '../components/seo/SEOHead';
 
 /**
  * Home Page Component - ACAWA Platform
@@ -9,15 +9,7 @@ import { Helmet } from 'react-helmet-async';
 const HomePage: React.FC = () => {
   return (
     <>
-      {/* SEO */}
-      <Helmet>
-        <title>ACAWA - Association Camerounaise de Karaté Wadokai | Accueil</title>
-        <meta 
-          name="description" 
-          content="Bienvenue sur la plateforme officielle d'ACAWA. Découvrez l'art martial traditionnel du Karaté Wadokai au Cameroun avec nos clubs, champions et événements." 
-        />
-        <meta name="keywords" content="karate, wadokai, cameroun, arts martiaux, clubs, dojos, competitions, stages" />
-      </Helmet>
+      <SEOHead {...SEOPresets.home} />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-red-800 to-orange-900 overflow-hidden">

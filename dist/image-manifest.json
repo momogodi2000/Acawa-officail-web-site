@@ -1,0 +1,36 @@
+{
+  "version": "1.0",
+  "generated_at": "E:\\project\\acawa",
+  "optimized_images": {
+    "public\\icons\\logo.jpg": [
+      "public\\images\\optimized\\logo-320w.jpg",
+      "public\\images\\optimized\\logo-320w.webp",
+      "public\\images\\optimized\\logo-640w.jpg",
+      "public\\images\\optimized\\logo-640w.webp",
+      "public\\images\\optimized\\logo-1024w.jpg",
+      "public\\images\\optimized\\logo-1024w.webp",
+      "public\\images\\optimized\\logo.jpg",
+      "public\\images\\optimized\\logo.webp"
+    ],
+    "public\\icons\\logo.pg.jpg": [
+      "public\\images\\optimized\\logo.pg-320w.jpg",
+      "public\\images\\optimized\\logo.pg-320w.webp",
+      "public\\images\\optimized\\logo.pg-640w.jpg",
+      "public\\images\\optimized\\logo.pg-640w.webp",
+      "public\\images\\optimized\\logo.pg-1024w.jpg",
+      "public\\images\\optimized\\logo.pg-1024w.webp",
+      "public\\images\\optimized\\logo.pg.jpg",
+      "public\\images\\optimized\\logo.pg.webp"
+    ],
+    "public\\icons\\logo2.jpg": [
+      "public\\images\\optimized\\logo2-320w.jpg",
+      "public\\images\\optimized\\logo2-320w.webp",
+      "public\\images\\optimized\\logo2-640w.jpg",
+      "public\\images\\optimized\\logo2-640w.webp",
+      "public\\images\\optimized\\logo2-1024w.jpg",
+      "public\\images\\optimized\\logo2-1024w.webp",
+      "public\\images\\optimized\\logo2.jpg",
+      "public\\images\\optimized\\logo2.webp"
+    ]
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { SEOHead, SEOPresets } from '../components/seo/SEOHead';
+import OptimizedImage from '../components/ui/OptimizedImage';
 
 /**
  * About Page Component - ACAWA Platform
@@ -8,14 +9,7 @@ import { Helmet } from 'react-helmet-async';
 const AboutPage: React.FC = () => {
   return (
     <>
-      {/* SEO */}
-      <Helmet>
-        <title>À Propos de nous | ACAWA - Association Camerounaise de Karaté Wadokai</title>
-        <meta 
-          name="description" 
-          content="Découvrez l'histoire et la mission d'ACAWA, l'Association Camerounaise de Karaté Wadokai. Notre vision, nos valeurs et notre engagement pour l'art martial." 
-        />
-      </Helmet>
+      <SEOHead {...SEOPresets.about} />
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
@@ -34,10 +28,11 @@ const AboutPage: React.FC = () => {
             {/* Logo and Introduction */}
             <div className="text-center mb-16">
               <div className="flex justify-center mb-8">
-                <img 
+                <OptimizedImage 
                   src="/icons/logo.jpg" 
                   alt="Logo ACAWA" 
                   className="w-32 h-32 object-contain rounded-full shadow-lg border-4 border-red-200"
+                  lazy={false}
                 />
               </div>
               <h2 className="text-4xl font-bold text-red-600 mb-4">Notre Histoire</h2>

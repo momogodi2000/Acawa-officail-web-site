@@ -7,7 +7,9 @@
       "Bash(npm install:*)",
       "Bash(dir)",
       "Bash(copy \"logo.pg.jpg\" \"logo.jpg\")",
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(touch:*)",
+      "Bash(chmod:*)"
     ],
     "deny": [],
     "ask": []
