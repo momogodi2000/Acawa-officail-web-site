@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hors ligne - ACAWA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #DC2626, #EF4444);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+        
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        .btn {
+            background: white;
+            color: #DC2626;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .status {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🥋</div>
+        <h1>Pas de connexion</h1>
+        <p>Vous êtes actuellement hors ligne. Certaines fonctionnalités peuvent ne pas être disponibles.</p>
+        
+        <button class="btn" onclick="window.location.reload()">
+            Réessayer
+        </button>
+        
+        <a href="tel:+237675395238" class="btn btn-secondary">
+            Appeler ACAWA
+        </a>
+        
+        <div class="status" id="status">
+            Vérification de la connexion...
+        </div>
+    </div>
+
+    <script>
+        // Check connection status
+        function updateStatus() {
+            const status = document.getElementById('status');
+            if (navigator.onLine) {
+                status.textContent = 'Connexion rétablie ! Cliquez sur Réessayer.';
+                status.style.color = '#10B981';
+            } else {
+                status.textContent = 'Toujours hors ligne. Veuillez vérifier votre connexion.';
+                status.style.color = '#EF4444';
+            }
+        }
+        
+        // Listen for connection changes
+        window.addEventListener('online', updateStatus);
+        window.addEventListener('offline', updateStatus);
+        
+        // Initial check
+        setTimeout(updateStatus, 1000);
+        
+        // Auto-reload when back online
+        window.addEventListener('online', () => {
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

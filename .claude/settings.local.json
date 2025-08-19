@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm ls:*)",
+      "Bash(npm install:*)",
+      "Bash(dir)",
+      "Bash(copy \"logo.pg.jpg\" \"logo.jpg\")",
+      "Bash(cp:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

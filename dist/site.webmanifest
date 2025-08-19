@@ -1,0 +1,67 @@
+{
+  "name": "ACAWA - Association Camerounaise de Karaté Wadokai",
+  "short_name": "ACAWA",
+  "description": "Association Camerounaise de Karaté Wadokai - L'Art Martial de l'Excellence",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#DC2626",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "fr-FR",
+  "categories": ["sports", "fitness", "lifestyle"],
+  "icons": [
+    {
+      "src": "/icons/logo.pg.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/logo2.jpg", 
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/desktop.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/screenshots/mobile.jpg", 
+      "sizes": "375x667",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Nos Clubs",
+      "short_name": "Clubs",
+      "description": "Trouver un club de karaté près de chez vous",
+      "url": "/clubs",
+      "icons": [
+        {
+          "src": "/icons/logo.pg.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Nous contacter via WhatsApp",
+      "url": "/contact",
+      "icons": [
+        {
+          "src": "/icons/logo.pg.jpg",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
