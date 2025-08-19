@@ -25,7 +25,9 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [showControls, setShowControls] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   const handlePlay = () => {
     if (videoRef.current) {
@@ -66,6 +68,65 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
     document.body.removeChild(link);
   };
 
+  const toggleFullscreen = async () => {
+    if (!containerRef.current) return;
+
+    try {
+      if (!isFullscreen) {
+        // Enter fullscreen
+        if (containerRef.current.requestFullscreen) {
+          await containerRef.current.requestFullscreen();
+        } else if ((containerRef.current as any).webkitRequestFullscreen) {
+          await (containerRef.current as any).webkitRequestFullscreen();
+        } else if ((containerRef.current as any).mozRequestFullScreen) {
+          await (containerRef.current as any).mozRequestFullScreen();
+        } else if ((containerRef.current as any).msRequestFullscreen) {
+          await (containerRef.current as any).msRequestFullscreen();
+        }
+        setIsFullscreen(true);
+      } else {
+        // Exit fullscreen
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        } else if ((document as any).webkitExitFullscreen) {
+          await (document as any).webkitExitFullscreen();
+        } else if ((document as any).mozCancelFullScreen) {
+          await (document as any).mozCancelFullScreen();
+        } else if ((document as any).msExitFullscreen) {
+          await (document as any).msExitFullscreen();
+        }
+        setIsFullscreen(false);
+      }
+    } catch (error) {
+      console.error('Fullscreen error:', error);
+    }
+  };
+
+  // Listen for fullscreen changes
+  React.useEffect(() => {
+    const handleFullscreenChange = () => {
+      const isCurrentlyFullscreen = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+      setIsFullscreen(isCurrentlyFullscreen);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('msfullscreenchange', handleFullscreenChange);
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('msfullscreenchange', handleFullscreenChange);
+    };
+  }, []);
+
   if (hasError) {
     return (
       <div className={`bg-gray-200 rounded-lg p-6 text-center ${className}`}>
@@ -79,7 +140,10 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
 
   return (
     <div 
-      className={`relative bg-black rounded-lg overflow-hidden shadow-lg group ${className}`}
+      ref={containerRef}
+      className={`relative bg-black rounded-lg overflow-hidden shadow-lg group ${className} ${
+        isFullscreen ? 'fixed inset-0 z-50 rounded-none' : ''
+      }`}
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -151,6 +215,22 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
             ) : (
               <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+              </svg>
+            )}
+          </button>
+
+          <button
+            onClick={toggleFullscreen}
+            className="bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors"
+            title={isFullscreen ? 'Quitter le plein écran' : 'Plein écran'}
+          >
+            {isFullscreen ? (
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M18 3a1 1 0 00-1.414 0L13 6.586V4a1 1 0 10-2 0v5a1 1 0 001 1h5a1 1 0 100-2h-2.586L18 4.414A1 1 0 0018 3zM3 18a1 1 0 001.414 0L8 14.414V17a1 1 0 102 0v-5a1 1 0 00-1-1H4a1 1 0 100 2h2.586L3 16.586A1 1 0 003 18z" clipRule="evenodd" />
+              </svg>
+            ) : (
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M3 4a1 1 0 011-1h5a1 1 0 000 2H6.414l2.293 2.293a1 1 0 11-1.414 1.414L5 6.414V9a1 1 0 01-2 0V4zm9 1a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V6.414l-2.293 2.293a1 1 0 11-1.414-1.414L14.586 5H12zm-9 7a1 1 0 112 0v2.586l2.293-2.293a1 1 0 111.414 1.414L6.414 15H9a1 1 0 110 2H4a1 1 0 01-1-1v-5zm13 0a1 1 0 01-1 1h-2.586l2.293 2.293a1 1 0 11-1.414 1.414L13.586 15H16a1 1 0 110 2h-5a1 1 0 01-1-1v-5a1 1 0 112 0v2.586l2.293-2.293a1 1 0 111.414 1.414L17 13.586V11z" clipRule="evenodd" />
               </svg>
             )}
           </button>

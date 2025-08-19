@@ -12,15 +12,26 @@ const HomePage: React.FC = () => {
       <SEOHead {...SEOPresets.home} />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-red-900 via-red-800 to-orange-900 overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-cyan-700 to-teal-800 overflow-hidden">
+        {/* Logo Background */}
+        <div 
+          className="absolute inset-0 opacity-10 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('/images/optimized/logo-1024w.webp')`,
+            backgroundSize: '40%',
+            backgroundPosition: 'center',
+          }}
+        ></div>
+        
         {/* Background Effects */}
-        <div className="absolute inset-0 bg-black/30"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-cyan-800/30 to-teal-900/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-yellow-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-green-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-cyan-400/15 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-teal-400/15 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl animate-ping"></div>
         </div>
 
         {/* Content */}
@@ -28,21 +39,25 @@ const HomePage: React.FC = () => {
           <div className="max-w-4xl mx-auto">
             {/* Logo Animation */}
             <div className="mb-8 animate-bounce">
-              <div className="w-24 h-24 mx-auto bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-4xl shadow-2xl">
-                🥋
+              <div className="w-32 h-32 mx-auto bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-5xl shadow-2xl border-4 border-white/20 backdrop-blur-sm">
+                <img 
+                  src="/images/optimized/logo-320w.webp" 
+                  alt="ACAWA Logo" 
+                  className="w-24 h-24 object-contain filter drop-shadow-lg"
+                />
               </div>
             </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-              <span className="block text-yellow-300">ACAWA</span>
-              <span className="block text-2xl md:text-4xl lg:text-5xl text-white/90 font-light mt-2">
+              <span className="block text-cyan-300 drop-shadow-lg">ACAWA</span>
+              <span className="block text-2xl md:text-4xl lg:text-5xl text-white/90 font-light mt-2 drop-shadow-md">
                 Association Camerounaise de Karaté Wadokai
               </span>
             </h1>
 
             {/* Tagline */}
-            <p className="text-xl md:text-2xl text-yellow-200 mb-8 font-medium">
+            <p className="text-xl md:text-2xl text-cyan-200 mb-8 font-medium drop-shadow-md">
               🥋 L'Art Martial de l'Excellence
             </p>
 
@@ -57,7 +72,7 @@ const HomePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link
                 to="/clubs"
-                className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="w-full sm:w-auto bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border border-cyan-500/30"
               >
                 <span className="flex items-center justify-center">
                   <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -71,7 +86,7 @@ const HomePage: React.FC = () => {
                 href="https://wa.me/237675395238?text=Bonjour, je souhaite rejoindre ACAWA"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                className="w-full sm:w-auto bg-teal-600 hover:bg-teal-700 text-white font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl border border-teal-500/30"
               >
                 <span className="flex items-center justify-center">
                   <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -107,7 +122,7 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Feature 1 */}
             <div className="text-center group">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                 🥋
               </div>
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Tradition Authentique</h3>
@@ -119,7 +134,7 @@ const HomePage: React.FC = () => {
 
             {/* Feature 2 */}
             <div className="text-center group">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                 🏆
               </div>
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Excellence Sportive</h3>
@@ -131,7 +146,7 @@ const HomePage: React.FC = () => {
 
             {/* Feature 3 */}
             <div className="text-center group">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
                 🤝
               </div>
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Communauté Unie</h3>
@@ -195,7 +210,7 @@ const HomePage: React.FC = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
               <div>
-                <h3 className="text-3xl font-bold text-red-600 mb-6">Les Origines (1939)</h3>
+                <h3 className="text-3xl font-bold text-cyan-600 mb-6">Les Origines (1939)</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   Le Karaté Wado Ryu fut fondé en 1939 par <strong>Hironori Ohtsuka</strong> (1892-1982), 
                   un maître d'arts martiaux japonais visionnaire. Ohtsuka sensei avait étudié le 
@@ -223,7 +238,7 @@ const HomePage: React.FC = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="lg:order-2">
-                <h3 className="text-3xl font-bold text-red-600 mb-6">Évolution et Reconnaissance</h3>
+                <h3 className="text-3xl font-bold text-cyan-600 mb-6">Évolution et Reconnaissance</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
                   En 1966, Hironori Ohtsuka fut honoré par l'Empereur du Japon du titre de 
                   <strong> "Meijin"</strong> (Maître Accompli), la plus haute distinction dans les arts martiaux japonais. 
@@ -234,7 +249,7 @@ const HomePage: React.FC = () => {
                   combinant harmonieusement techniques de frappe, esquives fluides, et projections, 
                   héritées de l'influence du Ju-jutsu traditionnel.
                 </p>
-                <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                <div className="bg-cyan-50 p-4 rounded-lg border-l-4 border-cyan-500">
                   <h5 className="font-bold text-gray-800 mb-2">Caractéristiques Uniques :</h5>
                   <ul className="text-gray-700 space-y-1">
                     <li>• Mouvements fluides et naturels</li>
@@ -245,11 +260,11 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
               <div className="lg:order-1">
-                <div className="bg-gradient-to-br from-red-500 to-red-600 text-white p-8 rounded-lg shadow-lg">
+                <div className="bg-gradient-to-br from-cyan-500 to-blue-600 text-white p-8 rounded-lg shadow-lg">
                   <h4 className="text-2xl font-bold mb-6 text-center">Chronologie</h4>
                   <div className="space-y-4">
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                      <div className="w-12 h-12 bg-white text-cyan-600 rounded-full flex items-center justify-center font-bold mr-4">
                         1892
                       </div>
                       <div>
@@ -257,7 +272,7 @@ const HomePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                      <div className="w-12 h-12 bg-white text-cyan-600 rounded-full flex items-center justify-center font-bold mr-4">
                         1939
                       </div>
                       <div>
@@ -265,7 +280,7 @@ const HomePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                      <div className="w-12 h-12 bg-white text-cyan-600 rounded-full flex items-center justify-center font-bold mr-4">
                         1966
                       </div>
                       <div>
@@ -273,7 +288,7 @@ const HomePage: React.FC = () => {
                       </div>
                     </div>
                     <div className="flex items-center">
-                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                      <div className="w-12 h-12 bg-white text-cyan-600 rounded-full flex items-center justify-center font-bold mr-4">
                         1982
                       </div>
                       <div>
@@ -304,12 +319,12 @@ const HomePage: React.FC = () => {
             {/* Testimonial 1 */}
             <div className="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mr-4">
                   👨‍💼
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-gray-800">Jean-Paul Mballa</h4>
-                  <p className="text-gray-600">Pratiquant depuis 5 ans</p>
+                  <h4 className="text-lg font-bold text-gray-800">Momo yvan</h4>
+                  <p className="text-gray-600">Pratiquant depuis 8 ans</p>
                 </div>
               </div>
               <blockquote className="text-gray-700 italic mb-4">
@@ -329,7 +344,7 @@ const HomePage: React.FC = () => {
                   👩‍🎓
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-gray-800">Marie Nguessam</h4>
+                  <h4 className="text-lg font-bold text-gray-800">Cecile</h4>
                   <p className="text-gray-600">Championne régionale</p>
                 </div>
               </div>
@@ -372,7 +387,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div className="group">
-              <div className="text-4xl md:text-5xl font-bold text-red-500 mb-2 group-hover:scale-110 transition-transform duration-300">
+              <div className="text-4xl md:text-5xl font-bold text-cyan-500 mb-2 group-hover:scale-110 transition-transform duration-300">
                 15+
               </div>
               <div className="text-lg text-gray-300">Clubs Affiliés</div>
@@ -400,25 +415,25 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-red-600 to-red-700 text-white">
+      <section className="py-20 bg-gradient-to-r from-cyan-600 to-blue-700 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6">
             Prêt à Commencer Votre Parcours ?
           </h2>
-          <p className="text-xl mb-8 text-red-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-cyan-100 max-w-2xl mx-auto">
             Rejoignez ACAWA aujourd'hui et découvrez la voie du Karaté Wadokai. 
             Votre transformation commence maintenant.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-white text-red-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="bg-white text-cyan-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Nous Contacter
             </Link>
             <Link
               to="/clubs"
-              className="border-2 border-white text-white hover:bg-white hover:text-red-600 font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
+              className="border-2 border-white text-white hover:bg-white hover:text-cyan-600 font-semibold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105"
             >
               Trouver un Club
             </Link>
