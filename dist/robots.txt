@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://acawa-cameroon.org/sitemap.xml
+
+# Disallow private admin areas (if any in future)
+Disallow: /admin/
+Disallow: /api/private/
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Crawl-delay for less aggressive crawling
+Crawl-delay: 1
+
+# Allow social media crawlers
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /

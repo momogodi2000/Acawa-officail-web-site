@@ -5,20 +5,20 @@
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#DC2626",
+  "theme_color": "#2563EB",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "fr-FR",
   "categories": ["sports", "fitness", "lifestyle"],
   "icons": [
     {
-      "src": "/icons/logo.pg.jpg",
+      "src": "/icons/logo.jpg",
       "sizes": "192x192",
       "type": "image/jpeg",
       "purpose": "any maskable"
     },
     {
-      "src": "/icons/logo2.jpg", 
+      "src": "/icons/logo.jpg", 
       "sizes": "512x512",
       "type": "image/jpeg",
       "purpose": "any maskable"
@@ -46,7 +46,7 @@
       "url": "/clubs",
       "icons": [
         {
-          "src": "/icons/logo.pg.jpg",
+          "src": "/icons/logo.jpg",
           "sizes": "96x96"
         }
       ]
@@ -58,7 +58,7 @@
       "url": "/contact",
       "icons": [
         {
-          "src": "/icons/logo.pg.jpg",
+          "src": "/icons/logo.jpg",
           "sizes": "96x96"
         }
       ]

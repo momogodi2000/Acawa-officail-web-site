@@ -1,23 +1,39 @@
-// Service Worker for ACAWA Platform
-// Progressive Web App functionality
+// ACAWA PWA Service Worker - Advanced Caching & Offline Support
+const CACHE_NAME = 'acawa-v1.0.1';
+const STATIC_CACHE = 'acawa-static-v1.0.1';
+const RUNTIME_CACHE = 'acawa-runtime-v1.0.1';
+const API_CACHE = 'acawa-api-v1.0.1';
 
-const CACHE_NAME = 'acawa-v1';
-const STATIC_CACHE = 'acawa-static-v1';
-const DYNAMIC_CACHE = 'acawa-dynamic-v1';
-
-// Assets to cache immediately
+// Assets to cache on install
 const STATIC_ASSETS = [
   '/',
+  '/index.html',
+  '/manifest.json',
   '/offline.html',
   '/icons/logo.pg.jpg',
-  '/icons/logo2.jpg'
+  '/icons/logo2.jpg',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png'
+];
+
+// Routes to cache for offline navigation
+const OFFLINE_ROUTES = [
+  '/',
+  '/a-propos',
+  '/clubs',
+  '/champions',
+  '/evenements',
+  '/galerie',
+  '/partenaires',
+  '/contact'
 ];
 
 // Assets to cache on first request
 const CACHE_PATTERNS = [
   /\.(js|css|woff2|png|jpg|jpeg|svg|webp)$/,
   /^https:\/\/fonts\.googleapis\.com/,
-  /^https:\/\/fonts\.gstatic\.com/
+  /^https:\/\/fonts\.gstatic\.com/,
+  /^https:\/\/cdnjs\.cloudflare\.com/
 ];
 
 // Install event - Cache static assets

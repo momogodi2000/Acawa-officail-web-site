@@ -86,6 +86,10 @@ const Header: React.FC = () => {
       label: t('nav.partners') 
     },
     { 
+      path: '/galerie', 
+      label: 'Galerie' 
+    },
+    { 
       path: '/contact', 
       label: t('nav.contact') 
     }

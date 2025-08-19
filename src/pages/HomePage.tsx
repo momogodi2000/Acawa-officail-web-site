@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Tradition Authentique</h3>
               <p className="text-gray-600 leading-relaxed">
                 Apprenez le véritable Karaté Wadokai selon les enseignements traditionnels 
-                transmis par les maîtres japonais.
+                transmis par les maîtres japonais depuis 1939.
               </p>
             </div>
 
@@ -133,7 +133,7 @@ const HomePage: React.FC = () => {
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Excellence Sportive</h3>
               <p className="text-gray-600 leading-relaxed">
                 Formez-vous aux côtés de champions nationaux et internationaux 
-                dans un environnement d'excellence.
+                dans un environnement d'excellence sportive et technique.
               </p>
             </div>
 
@@ -145,8 +145,231 @@ const HomePage: React.FC = () => {
               <h3 className="text-2xl font-semibold text-gray-800 mb-4">Communauté Unie</h3>
               <p className="text-gray-600 leading-relaxed">
                 Rejoignez une famille de pratiquants passionnés répartis dans 
-                tout le Cameroun.
+                tout le Cameroun, unis par les valeurs du respect et de la discipline.
               </p>
+            </div>
+
+            {/* Feature 4 */}
+            <div className="text-center group">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                💪
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Développement Personnel</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Développez confiance en soi, discipline mentale, condition physique 
+                et équilibre émotionnel à travers la pratique régulière.
+              </p>
+            </div>
+
+            {/* Feature 5 */}
+            <div className="text-center group">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                🎯
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Techniques Efficaces</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Maîtrisez des techniques de self-défense efficaces et des mouvements 
+                fluides caractéristiques du style Wadokai.
+              </p>
+            </div>
+
+            {/* Feature 6 */}
+            <div className="text-center group">
+              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center text-white text-3xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                👨‍👩‍👧‍👦
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800 mb-4">Pour Toute la Famille</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Des cours adaptés à tous les âges et niveaux, de l'enfant à l'adulte, 
+                dans une ambiance familiale et bienveillante.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Wado Ryu History Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                L'Histoire du Karaté Wado Ryu
+              </h2>
+              <p className="text-xl text-gray-600">
+                Une tradition séculaire d'arts martiaux japonais
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              <div>
+                <h3 className="text-3xl font-bold text-red-600 mb-6">Les Origines (1939)</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Le Karaté Wado Ryu fut fondé en 1939 par <strong>Hironori Ohtsuka</strong> (1892-1982), 
+                  un maître d'arts martiaux japonais visionnaire. Ohtsuka sensei avait étudié le 
+                  Ju-jutsu traditionnel pendant plus de 20 ans avant de découvrir le Karaté d'Okinawa 
+                  sous l'enseignement du légendaire Gichin Funakoshi.
+                </p>
+                <p className="text-gray-700 leading-relaxed">
+                  Le terme "Wado" signifie littéralement "Voie de la Paix" ou "Voie de l'Harmonie", 
+                  reflétant la philosophie unique de cette école qui prône l'efficacité technique 
+                  dans la non-violence et l'harmonie avec l'adversaire.
+                </p>
+              </div>
+              <div className="bg-white p-8 rounded-lg shadow-lg">
+                <div className="text-6xl text-center mb-4">🏯</div>
+                <h4 className="text-xl font-bold text-center text-gray-800 mb-4">
+                  Principe Fondamental
+                </h4>
+                <blockquote className="text-lg text-gray-600 text-center italic">
+                  "L'essence du Wado Ryu est de ne pas s'opposer directement à la force, 
+                  mais de l'utiliser et de la rediriger"
+                </blockquote>
+                <p className="text-center text-gray-500 mt-4">- Hironori Ohtsuka</p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="lg:order-2">
+                <h3 className="text-3xl font-bold text-red-600 mb-6">Évolution et Reconnaissance</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  En 1966, Hironori Ohtsuka fut honoré par l'Empereur du Japon du titre de 
+                  <strong> "Meijin"</strong> (Maître Accompli), la plus haute distinction dans les arts martiaux japonais. 
+                  Le Wado Ryu devint l'une des quatre grandes écoles de Karaté reconnues officiellement au Japon.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Aujourd'hui, le Wado Ryu est pratiqué dans plus de 180 pays à travers le monde, 
+                  combinant harmonieusement techniques de frappe, esquives fluides, et projections, 
+                  héritées de l'influence du Ju-jutsu traditionnel.
+                </p>
+                <div className="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                  <h5 className="font-bold text-gray-800 mb-2">Caractéristiques Uniques :</h5>
+                  <ul className="text-gray-700 space-y-1">
+                    <li>• Mouvements fluides et naturels</li>
+                    <li>• Esquives et déplacements intelligents</li>
+                    <li>• Intégration d'éléments de Ju-jutsu</li>
+                    <li>• Philosophie de non-résistance active</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="lg:order-1">
+                <div className="bg-gradient-to-br from-red-500 to-red-600 text-white p-8 rounded-lg shadow-lg">
+                  <h4 className="text-2xl font-bold mb-6 text-center">Chronologie</h4>
+                  <div className="space-y-4">
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                        1892
+                      </div>
+                      <div>
+                        <p className="font-semibold">Naissance de Hironori Ohtsuka</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                        1939
+                      </div>
+                      <div>
+                        <p className="font-semibold">Fondation du Wado Ryu</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                        1966
+                      </div>
+                      <div>
+                        <p className="font-semibold">Titre de Meijin décerné</p>
+                      </div>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 bg-white text-red-600 rounded-full flex items-center justify-center font-bold mr-4">
+                        1982
+                      </div>
+                      <div>
+                        <p className="font-semibold">Décès du fondateur</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Témoignages de nos Pratiquants
+            </h2>
+            <p className="text-xl text-gray-600">
+              Découvrez l'expérience de ceux qui ont choisi ACAWA
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Testimonial 1 */}
+            <div className="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                  👨‍💼
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-gray-800">Jean-Paul Mballa</h4>
+                  <p className="text-gray-600">Pratiquant depuis 5 ans</p>
+                </div>
+              </div>
+              <blockquote className="text-gray-700 italic mb-4">
+                "ACAWA a transformé ma vie. J'ai gagné en confiance, en discipline et j'ai trouvé 
+                une vraie famille. Les enseignements des maîtres m'ont appris bien plus que des techniques 
+                de combat - ils m'ont enseigné une philosophie de vie."
+              </blockquote>
+              <div className="flex text-yellow-400 text-xl">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+
+            {/* Testimonial 2 */}
+            <div className="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                  👩‍🎓
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-gray-800">Marie Nguessam</h4>
+                  <p className="text-gray-600">Championne régionale</p>
+                </div>
+              </div>
+              <blockquote className="text-gray-700 italic mb-4">
+                "Commencer le karaté à ACAWA était la meilleure décision de ma vie. Non seulement 
+                j'ai développé mes capacités physiques, mais j'ai aussi appris à me défendre et 
+                à avoir confiance en mes capacités."
+              </blockquote>
+              <div className="flex text-yellow-400 text-xl">
+                ⭐⭐⭐⭐⭐
+              </div>
+            </div>
+
+            {/* Testimonial 3 */}
+            <div className="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div className="flex items-center mb-6">
+                <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center text-white text-2xl mr-4">
+                  👦
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-gray-800">Pierre Kana (Parent)</h4>
+                  <p className="text-gray-600">Père d'un jeune pratiquant</p>
+                </div>
+              </div>
+              <blockquote className="text-gray-700 italic mb-4">
+                "Mon fils pratique à ACAWA depuis 3 ans. J'ai vu une amélioration remarquable 
+                dans sa discipline, ses notes à l'école et son respect envers les autres. 
+                Les valeurs enseignées ici sont exceptionnelles."
+              </blockquote>
+              <div className="flex text-yellow-400 text-xl">
+                ⭐⭐⭐⭐⭐
+              </div>
             </div>
           </div>
         </div>

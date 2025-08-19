@@ -1,6 +1,8 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { usePWA, usePWAStatus } from '@/hooks/usePWA';
+import PWAInstallGuide from '@/components/ui/PWAInstallGuide';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
@@ -13,6 +15,7 @@ const ChampionsPage = React.lazy(() => import('@/pages/ChampionsPage'));
 const EventsPage = React.lazy(() => import('@/pages/EventsPage'));
 const PartnersPage = React.lazy(() => import('@/pages/PartnersPage'));
 const ContactPage = React.lazy(() => import('@/pages/ContactPage'));
+const GalleryPage = React.lazy(() => import('@/pages/GalleryPage'));
 const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
 
 // Layout components
@@ -36,9 +39,17 @@ const PageLoader: React.FC = () => (
 
 /**
  * Main App Component - ACAWA Platform
- * Handles routing and global layout
+ * Handles routing, PWA functionality and global layout
  */
 const App: React.FC = () => {
+  const { showInstallPrompt, dismissInstallPrompt, trackPageVisit } = usePWA();
+  const { isPWA } = usePWAStatus();
+
+  // Track page visits for PWA analytics
+  React.useEffect(() => {
+    trackPageVisit();
+  }, [trackPageVisit]);
+
   return (
     <ThemeProvider>
       <LanguageProvider>
@@ -51,7 +62,12 @@ const App: React.FC = () => {
           <link rel="canonical" href="https://ACAWA-cameroon.org" />
         </Helmet>
 
-        <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-200">
+        {/* PWA Install Guide */}
+        {showInstallPrompt && !isPWA && (
+          <PWAInstallGuide isOpen={showInstallPrompt} onClose={dismissInstallPrompt} />
+        )}
+
+          <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-200">
         {/* Header */}
         <React.Suspense 
           fallback={
@@ -97,6 +113,10 @@ const App: React.FC = () => {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/adhesion" element={<Navigate to="/contact" replace />} />
               
+              {/* Gallery */}
+              <Route path="/galerie" element={<GalleryPage />} />
+              <Route path="/gallery" element={<Navigate to="/galerie" replace />} />
+              
               {/* Redirects for common typos/variations */}
               <Route path="/accueil" element={<Navigate to="/" replace />} />
               <Route path="/home" element={<Navigate to="/" replace />} />
@@ -122,14 +142,12 @@ const App: React.FC = () => {
       {/* Scroll to Top Button */}
       <ScrollToTop />
 
-      {/* Performance monitoring in development */}
-      {import.meta.env.DEV && <DevTools />}
+        {/* Performance monitoring in development */}
+        {import.meta.env.DEV && <DevTools />}
       </LanguageProvider>
     </ThemeProvider>
   );
-};
-
-/**
+};/**
  * Scroll to Top Button Component
  */
 const ScrollToTop: React.FC = () => {

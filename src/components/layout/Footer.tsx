@@ -127,7 +127,7 @@ const Footer: React.FC = () => {
             </ul>
 
             <div className="mt-8">
-              <h5 className="text-lg font-medium mb-4 text-yellow-400">Suivez-nous</h5>
+              <h5 className="text-lg font-medium mb-4 text-secondary-400">Suivez-nous</h5>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <a
@@ -147,7 +147,7 @@ const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-xl font-semibold mb-6 text-red-400">Newsletter</h4>
+            <h4 className="text-xl font-semibold mb-6 text-primary-400">Newsletter</h4>
             <p className="text-gray-300 mb-4">
               Recevez nos dernières actualités et événements directement dans votre boîte mail.
             </p>
@@ -157,11 +157,11 @@ const Footer: React.FC = () => {
                 <input
                   type="email"
                   placeholder="Votre email..."
-                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-red-500 focus:bg-gray-700 transition-all duration-200"
+                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-l-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-500 focus:bg-gray-700 transition-all duration-200"
                 />
                 <button
                   type="button"
-                  className="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-r-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                  className="px-4 py-2 bg-primary-600 hover:bg-primary-700 rounded-r-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-gray-900"
                   aria-label="S'abonner à la newsletter"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -176,18 +176,18 @@ const Footer: React.FC = () => {
 
             {/* Certifications */}
             <div className="mt-8">
-              <h5 className="text-lg font-medium mb-4 text-yellow-400">Affiliations</h5>
+              <h5 className="text-lg font-medium mb-4 text-secondary-400">Affiliations</h5>
               <div className="space-y-2 text-sm text-gray-400">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span className="w-2 h-2 bg-secondary-500 rounded-full"></span>
                   <span>Fédération Mondiale de Wadokai</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span className="w-2 h-2 bg-secondary-500 rounded-full"></span>
                   <span>Comité Olympique Camerounais</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  <span className="w-2 h-2 bg-secondary-500 rounded-full"></span>
                   <span>FECAKAM</span>
                 </div>
               </div>
@@ -217,7 +217,7 @@ const Footer: React.FC = () => {
                 <React.Fragment key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 hover:text-red-400 transition-colors duration-200"
+                    className="text-gray-400 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.label}
                   </Link>
@@ -233,19 +233,19 @@ const Footer: React.FC = () => {
           <div className="mt-4 pt-4 border-t border-gray-800 text-center">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-500">
               <div>
-                <span className="text-red-400 font-semibold">15+</span>
+                <span className="text-primary-400 font-semibold">15+</span>
                 <p>Clubs Affiliés</p>
               </div>
               <div>
-                <span className="text-yellow-400 font-semibold">500+</span>
+                <span className="text-secondary-400 font-semibold">500+</span>
                 <p>Membres Actifs</p>
               </div>
               <div>
-                <span className="text-green-400 font-semibold">25+</span>
+                <span className="text-accent-400 font-semibold">25+</span>
                 <p>Champions Nationaux</p>
               </div>
               <div>
-                <span className="text-blue-400 font-semibold">10+</span>
+                <span className="text-primary-500 font-semibold">10+</span>
                 <p>Années d'Excellence</p>
               </div>
             </div>
