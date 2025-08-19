@@ -5,6 +5,7 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  publicDir: 'public',
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -38,8 +39,9 @@ export default defineConfig({
     assetsInlineLimit: 4096, // Inline assets smaller than 4kb
     target: 'esnext',
     sourcemap: false,
-    minify: 'esbuild', // Use esbuild for faster minification
+    minify: 'terser', // Use terser for better compression
     cssMinify: true,
+    copyPublicDir: true,
   },
   // Image optimization settings
   assetsInclude: ['**/*.webp', '**/*.avif'],
