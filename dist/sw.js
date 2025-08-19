@@ -1,6 +1,7 @@
 // ACAWA PWA Service Worker - Advanced Caching & Offline Support
 const CACHE_NAME = 'acawa-v1.0.1';
 const STATIC_CACHE = 'acawa-static-v1.0.1';
+const DYNAMIC_CACHE = 'acawa-dynamic-v1.0.1';
 const RUNTIME_CACHE = 'acawa-runtime-v1.0.1';
 const API_CACHE = 'acawa-api-v1.0.1';
 
@@ -8,12 +9,14 @@ const API_CACHE = 'acawa-api-v1.0.1';
 const STATIC_ASSETS = [
   '/',
   '/index.html',
-  '/manifest.json',
+  '/site.webmanifest',
   '/offline.html',
-  '/icons/logo.pg.jpg',
+  '/icons/logo.jpg',
   '/icons/logo2.jpg',
-  '/icons/icon-192x192.png',
-  '/icons/icon-512x512.png'
+  '/images/optimized/logo.webp',
+  '/images/optimized/logo-320w.webp',
+  '/images/optimized/logo-640w.webp',
+  '/images/optimized/logo-1024w.webp'
 ];
 
 // Routes to cache for offline navigation
@@ -44,16 +47,20 @@ self.addEventListener('install', (event) => {
     caches.open(STATIC_CACHE)
       .then((cache) => {
         console.log('[SW] Caching static assets');
-        // Only cache assets that exist and aren't chrome-extension URLs
-        return cache.addAll(STATIC_ASSETS.filter(asset => !asset.startsWith('chrome-extension')));
+        // Cache only essential assets to avoid 404s
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/offline.html'
+        ]);
       })
       .catch((error) => {
-        console.error('[SW] Failed to cache static assets:', error);
+        console.error('[SW] Cache installation failed:', error);
+      })
+      .then(() => {
+        self.skipWaiting();
       })
   );
-  
-  // Skip waiting to activate immediately
-  self.skipWaiting();
 });
 
 // Activate event - Clean up old caches
@@ -122,20 +129,29 @@ async function handleStaticAsset(request) {
     
     if (cachedResponse) {
       // Return cached version and update in background
-      fetchAndCache(request, cache);
+      fetchAndCache(request, cache).catch(() => {}); // Silent fail for background update
       return cachedResponse;
     }
     
     // Not in cache, fetch and cache
     const networkResponse = await fetch(request);
-    if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
+    if (networkResponse.ok && networkResponse.status < 400) {
+      cache.put(request, networkResponse.clone()).catch(() => {}); // Silent fail for cache
     }
     return networkResponse;
     
   } catch (error) {
     console.error('[SW] Error handling static asset:', error);
-    return new Response('Asset not available', { status: 404 });
+    // Try to return a fallback or just let the request fail gracefully
+    try {
+      return fetch(request);
+    } catch (fetchError) {
+      return new Response('Resource not available', { 
+        status: 404,
+        statusText: 'Not Found',
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    }
   }
 }
 
@@ -143,22 +159,59 @@ async function handleStaticAsset(request) {
 async function handleNavigationRequest(request) {
   try {
     const networkResponse = await fetch(request);
-    return networkResponse;
+    if (networkResponse.ok) {
+      return networkResponse;
+    } else {
+      throw new Error('Network response not ok');
+    }
   } catch (error) {
     // Network failed, try cache
-    const cache = await caches.open(STATIC_CACHE);
-    const cachedResponse = await cache.match('/');
-    
-    if (cachedResponse) {
-      return cachedResponse;
+    try {
+      const cache = await caches.open(STATIC_CACHE);
+      const cachedResponse = await cache.match('/') || await cache.match('/index.html');
+      
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+    } catch (cacheError) {
+      console.error('[SW] Cache fallback failed:', cacheError);
     }
     
-    // Return offline page if available
-    const offlineResponse = await cache.match('/offline.html');
-    return offlineResponse || new Response(
-      '<!DOCTYPE html><html><head><title>Hors ligne</title></head><body><h1>Pas de connexion</h1><p>Veuillez vérifier votre connexion internet.</p></body></html>',
-      { headers: { 'Content-Type': 'text/html' } }
-    );
+    // Last resort - return offline page or basic HTML
+    try {
+      const cache = await caches.open(STATIC_CACHE);
+      const offlinePage = await cache.match('/offline.html');
+      if (offlinePage) {
+        return offlinePage;
+      }
+    } catch (offlineError) {
+      console.error('[SW] Offline page not available:', offlineError);
+    }
+    
+    // Ultimate fallback
+    return new Response(`
+      <!DOCTYPE html>
+      <html lang="fr">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ACAWA - Page non disponible</title>
+        <style>
+          body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+          h1 { color: #2563EB; }
+        </style>
+      </head>
+      <body>
+        <h1>ACAWA</h1>
+        <p>Cette page n'est pas disponible hors ligne.</p>
+        <p>Veuillez vérifier votre connexion Internet et réessayer.</p>
+        <button onclick="window.location.reload()">Réessayer</button>
+      </body>
+      </html>
+    `, {
+      status: 200,
+      headers: { 'Content-Type': 'text/html; charset=utf-8' }
+    });
   }
 }
 
